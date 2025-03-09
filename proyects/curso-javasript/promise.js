@@ -24,9 +24,23 @@ function prometemeAmistad() {
     });
 }
 
+function agregarEmojis(mensaje){
+    return new Promise ((resolve, reject) => {
+        resolve( `${mensaje} 🗣🗣🗣`)
+    })
+}
+
 prometemeAmistad()
     .then( respuesta => {
-        console.log(respuesta);
+        return agregarEmojis(respuesta)
+            
+    })
+    .then(mensaje => {
+        console.log(mensaje);
+        return Promise.resolve(true)
+    })
+    .then( ok => {
+        console.log(ok ? "todobien" : "todomal")
     })
     .catch( error =>{
         console.error(error);
@@ -34,5 +48,3 @@ prometemeAmistad()
     .finally( () => {
         console.log("Fin de la promesa")
     });
-
-//sigo con el codigo
