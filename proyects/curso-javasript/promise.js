@@ -31,20 +31,11 @@ function agregarEmojis(mensaje){
 }
 
 prometemeAmistad()
-    .then( respuesta => {
-        return agregarEmojis(respuesta)
-            
-    })
+    .then(respuesta => agregarEmojis(respuesta) )
     .then(mensaje => {
         console.log(mensaje);
         return Promise.resolve(true)
     })
-    .then( ok => {
-        console.log(ok ? "todobien" : "todomal")
-    })
-    .catch( error =>{
-        console.error(error);
-    })
-    .finally( () => {
-        console.log("Fin de la promesa")
-    });
+    .then(ok => console.log(ok ? "todobien" : "todomal"))
+    .catch( error => console.error(error))
+    .finally( () => console.log("Fin de la promesa"));
